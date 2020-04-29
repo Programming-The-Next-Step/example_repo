@@ -1,0 +1,1 @@
+from test_package_ptns.julia_set_example import julia_set
