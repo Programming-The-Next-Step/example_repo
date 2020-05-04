@@ -4,7 +4,26 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 
 class julia_set:
+    """
+    A class that computes and plots the julia set. the following properties can be set but all have reasonable default values.
+
+    Properties
+    ----------
+    im_width : int
+        The width of the grid for computing the julia set.
+    im_height : int
+        The height of the grid for computing the julia set.
+    zabs_max : float
+        Maximum z-value to determine divergence.
+    nit_max : int
+        maximum number of iterations to determine convergence.
+    xmin, xmax, ymin, ymax : float
+        edge points of the grid for computing the julia set.
+    """
     def __init__(self):
+        """
+        Constructor for the julia_set class. Takes no arguments.
+        """
         self.im_width, self.im_height = 300, 300
         self.c = complex(-0.1, 0.65)
         self.zabs_max = 10
@@ -16,6 +35,9 @@ class julia_set:
         self.julia = None
     
     def compute_julia_set(self):
+        """
+        Computes the julia_set. Takes no arguments.
+        """
         if self.julia is None:
             self.julia = np.zeros((self.im_width, self.im_height))
             for ix in range(self.im_width):
@@ -34,6 +56,9 @@ class julia_set:
 
 
     def plot(self):
+        """
+        Plots the julia_set. If no julia set was computes it first computes one. Takes no arguments.
+        """
 
         if self.julia is None:
             self.compute_julia_set()
